@@ -1,0 +1,2 @@
+Consulta de insertar datos:
+INSERT INTO `libros` (`id`, `nombre`, `imagen`) VALUES (NULL, 'Desarrollo de Aplicaciones con Java 8 Orientado a Objetos', 'imagen1.jpg')

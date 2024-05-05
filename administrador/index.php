@@ -22,6 +22,8 @@ if($_POST){
 
 <body>
 
+
+
     <!-- Section: Design Block -->
     <section class=" text-center text-lg-start">
         <style>
@@ -40,6 +42,8 @@ if($_POST){
                 }
             }
         </style>
+        
+
         <div class="card mb-3">
             <div class="row g-0 d-flex align-items-center">
                 <div class="col-lg-4 d-none d-lg-flex">
@@ -48,7 +52,8 @@ if($_POST){
                 </div>
                 <div class="col-lg-8">
                     <div class="card-body py-5 px-md-5">
-
+                    <h1>Administrador</h1>
+                    <br/>
                         <form method="post">
                             <!-- Email input -->
                             <div data-mdb-input-init class="form-outline mb-4">

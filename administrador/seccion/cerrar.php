@@ -1,3 +1,8 @@
-<?php include('template/cabecera.php'); ?>
-cerrar
-<?php include('template/pie.php'); ?>
+<?php 
+session_start();
+session_destroy();
+
+header('Location:../index.php');
+
+
+?>

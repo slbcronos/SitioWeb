@@ -1,8 +1,16 @@
-<?php 
-if($_POST){
-    header('Location:inicio.php');
-}
+<?php
+session_start();
+if ($_POST) {
+    if (($_POST['usuario'] == "batman") && ($_POST['contrasenia'] == "sistema")) { // esta linea se tiene que cambiar con una consulta a la base de datos
+        $_SESSION["usuario"] = "ok";
+        $_SESSION["nombreUsuario"] = "batman";
+        header('Location:inicio.php');
 
+    } else {
+        $mensaje = "Error: El usuario o contraseña son incorrectos";
+    }
+
+}
 
 ?>
 
@@ -42,7 +50,7 @@ if($_POST){
                 }
             }
         </style>
-        
+
 
         <div class="card mb-3">
             <div class="row g-0 d-flex align-items-center">
@@ -52,18 +60,25 @@ if($_POST){
                 </div>
                 <div class="col-lg-8">
                     <div class="card-body py-5 px-md-5">
-                    <h1>Administrador</h1>
-                    <br/>
+                        <h1>Administrador</h1>
+                        <br />
+                        <?php if (isset($mensaje)) { ?>
+                            <div class="alert alert-danger" role="alert">
+                                <?php echo $mensaje; ?>
+                            </div>
+                        <?php } ?>
                         <form method="post">
                             <!-- Email input -->
                             <div data-mdb-input-init class="form-outline mb-4">
-                                <input type="text" class="form-control" name="usuario" placeholder="Escribe tu Usuario" />
+                                <input type="text" class="form-control" name="usuario"
+                                    placeholder="Escribe tu Usuario" />
                                 <label class="form-label" for="form2Example1">Usuario</label>
                             </div>
 
                             <!-- Password input -->
                             <div data-mdb-input-init class="form-outline mb-4">
-                                <input type="password" class="form-control" name="contrasenia" placeholder="Escribe tu Contraseña"/>
+                                <input type="password" class="form-control" name="contrasenia"
+                                    placeholder="Escribe tu Contraseña" />
                                 <label class="form-label" for="form2Example2">Contraseña</label>
                             </div>
 

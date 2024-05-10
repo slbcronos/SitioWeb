@@ -9,7 +9,7 @@
                         <p class="col-md-8 fs-4">
                             Este panel es de uso exclusivo de administrador.
                         </p>
-                        <a class="btn btn-primary btn-lg" href="seccion/Productos.php" role="button">Administrar Libros</a>
+                        <a class="btn btn-primary btn-lg" href="seccion/productos.php" role="button">Administrar Libros</a>
 
                     </div>
                 </div>

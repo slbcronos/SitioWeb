@@ -22,8 +22,8 @@ switch ($accion) {
 
         $sentenciaSQL->bindParam(':imagen', $nombreArchivo);
         $sentenciaSQL->execute();
-        
-        header("Location:productos.php");
+        echo("<meta http-equiv='refresh' content='1'>"); //Refresh by HTTP 'meta'
+        //header("Location:productos.php");
         //echo "Infomacion Agregada";
         break;
 
@@ -60,7 +60,8 @@ switch ($accion) {
             $sentenciaSQL->bindParam(':id', $txtID);
             $sentenciaSQL->execute();
         }
-        header("Location:productos.php");
+        echo("<meta http-equiv='refresh' content='1'>"); //Refresh by HTTP 'meta'
+        //header("Location:productos.php");
 
         //echo "Precionado boton modificar";
         break;
@@ -100,7 +101,9 @@ switch ($accion) {
         $sentenciaSQL->bindParam(':id', $txtID);
         $sentenciaSQL->execute();
 
-        header("Location:productos.php");
+        echo("<meta http-equiv='refresh' content='1'>"); //Refresh by HTTP 'meta'
+
+        //header("Location:productos.php");
 
         //echo "Precionado boton Borrar";
 

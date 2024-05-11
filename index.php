@@ -1,26 +1,15 @@
 <?php include ("template/cabecera.php"); ?>
-
-
-            
-<div class="container px-12 text-center">
-  <div class="row gx-6">
-    <div class="col">
-    <img src="BibliotecaDigital.png" alt="...">
-    </div>
-    <div class="col">
-      <div class="p-3">
-      <br/>
-      <br/>
-      <h1 class="card-title">Bienvenid@s..</h1>
-        <p class="card-text">Biblioteca Personal</p>
-        <br/>
-        <a href="productos.php" class="btn btn-primary">Ver Libros.</a>
-    </div>
-    </div>
+         
+<div class="card" style="width: 100%;">
+<center><img class="img-fluid" src="BibliotecaDigital.png" alt="..."style="width: 70%;"></center>
+  
+  <div class="card-body">
+  <center><h1 class="card-title">Bienvenid@s..</h1></center>
+  <center><p class="card-text">Biblioteca Personal</p></center>
+  <br/>
+  <center><a href="productos.php" class="btn btn-primary">Ver Libros.</a></center>
   </div>
 </div>
-
-
 
 <?php include ("template/pie.php"); ?>
 

@@ -16,12 +16,12 @@ $listaLibros = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
     <div class="card">
         <img class="card-img-top" src="./img/<?php echo $libro['imagen']; ?>" alt="Imagen" height="400" />
         <div class="card-body">
-            <h5 class="card-title"><?php echo $libro['nombre']; ?></h5>
+            <h5 class="text-truncate"><?php echo $libro['nombre']; ?></h5>
             <a
                 name=""
                 id=""
                 class="btn btn-primary"
-                href="#"
+                href="productosDetalle.php?iDLibro=<?php echo $libro['id']; ?>"
                 role="button"
                 >Ver mas..</a>
             

@@ -1,2 +1,15 @@
 Consulta de insertar datos:
 INSERT INTO `libros` (`id`, `nombre`, `imagen`) VALUES (NULL, 'Desarrollo de Aplicaciones con Java 8 Orientado a Objetos', 'imagen1.jpg')
+
+
+Posibles soluciones a el detalle de libros
+https://es.stackoverflow.com/questions/531443/mostrar-descripci%C3%B3n-de-producto-php-mysql
+
+https://www.youtube.com/watch?v=Wg7wUAZ2WfY
+
+
+********* este ayudo*************************
+https://desarrolloweb.com/articulos/317.php
+
+************************************************
+

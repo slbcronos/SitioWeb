@@ -23,17 +23,13 @@ $listaLibros = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
                 class="btn btn-primary"
                 href="productosDetalle.php?iDLibro=<?php echo $libro['id']; ?>"
                 role="button"
-                >Ver mas..</a>
+                >Detalles..</a>
             
         </div>
     </div>
 </div>
 
 <?php } ?>
-
-
-
-
 
 
 

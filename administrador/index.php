@@ -85,17 +85,10 @@ if ($_POST) {
                             <!-- Submit button -->
                             <button type="submit" data-mdb-button-init data-mdb-ripple-init
                                 class="btn btn-primary btn-block mb-4">Acceder al Admin</button>
-                                
 
-                                <a
-                                    name=""
-                                    id=""
-                                    class="btn btn-danger btn-block mb-4""
-                                    href="../index.php"
-                                    role="button"
-                                    >Cancelar</a
-                                >
-                                
+
+                            <a name="" id="" class="btn btn-danger btn-block mb-4"" href="
+                                ../index.php"role="button">Cancelar</a>
 
                         </form>
 

@@ -20,10 +20,10 @@ $libro = $sentenciaSQL->fetch(PDO::FETCH_LAZY);
 <div class="card" style="width: 25rem;">
   <img src="./img/<?php echo $libro['imagen']; ?>" class="card-img-top" alt="...">
   <div class="card-body">
-    <h5 class="card-title"><?php echo $libro['nombre'] ?></h5>
+    <h4 class="card-title"><?php echo $libro['nombre'] ?></h4>
 
     
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <p class="card-text">breve descripcion de libro.</p>
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">Editorial</li>
@@ -32,11 +32,11 @@ $libro = $sentenciaSQL->fetch(PDO::FETCH_LAZY);
     <li class="list-group-item">Paginas</li>
   </ul>
   <div class="card-body">
-    <a href="#" class="card-link">Card link</a>
-    <a href="productos.php" class="card-link">Regresar</a>
+    
+    <a name="" id="" class="btn btn-primary btn-lg mb-4"" href="./productos.php"role="button">Editar Libro</a>
+    <a name="" id="" class="btn btn-warning btn-lg mb-4"" href="./productos.php"role="button">Regresar</a>
   </div>
 </div>
-
 
 
 

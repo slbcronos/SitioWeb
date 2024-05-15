@@ -7,7 +7,7 @@
   <center><h1 class="card-title">Bienvenid@s..</h1></center>
   <center><p class="card-text">Biblioteca Personal</p></center>
   <br/>
-  <center><a href="productos.php" class="btn btn-primary">Ver Libros.</a></center>
+  <center><a href="productos.php" class="btn btn-primary btn-lg">Ver Libros.</a></center>
   </div>
 </div>
 

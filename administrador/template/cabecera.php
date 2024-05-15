@@ -25,8 +25,8 @@ session_start();
 </head>
 
 <body>
-
-<?php $url="http://".$_SERVER['HTTP_HOST']."/sitioweb" ?>
+<?php //revisar esto que cambio en la linea 23 en el archivo de notas, por eso falla?>
+<?php $url="http://".$_SERVER['HTTP_HOST'];?>
 
     <nav class="navbar navbar-expand navbar-light bg-light">
         <div class="nav navbar-nav">

@@ -2,6 +2,13 @@ Consulta de insertar datos:
 INSERT INTO `libros` (`id`, `nombre`, `imagen`) VALUES (NULL, 'Desarrollo de Aplicaciones con Java 8 Orientado a Objetos', 'imagen1.jpg')
 
 
+Notas
+en la cabecera del admin en la linea 27 la linear original es esta: <?php $url="http://".$_SERVER['HTTP_HOST']."/sitioweb" ?> , pero no funciona en la web en el hosting y se---
+remplaza por esta: <?php $url="http://".$_SERVER['HTTP_HOST'];?>
+
+
+
+
 Posibles soluciones a el detalle de libros
 https://es.stackoverflow.com/questions/531443/mostrar-descripci%C3%B3n-de-producto-php-mysql
 

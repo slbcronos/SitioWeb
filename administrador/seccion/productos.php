@@ -192,9 +192,7 @@ $listaLibros = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1"><strong>Descripcion:</strong></label>
                     <textarea form="1" class="form-control" id="txtDescripcion1" rows="3" name="txtDescripcion1"
-                        placeholder="Descripcion"> <?php if (isset($_POST['accion'])) {
-                            echo $libro['detalles'];
-                        } ?> </textarea>
+                        placeholder="Descripcion"><?php if(isset($_POST['accion'])){echo $libro['detalles'];}?></textarea>
                 </div>
 
                 <div data-mdb-input-init class="form-outline mb-4">

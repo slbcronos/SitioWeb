@@ -23,17 +23,17 @@ $libro = $sentenciaSQL->fetch(PDO::FETCH_LAZY);
     <h4 class="card-title"><?php echo $libro['nombre'] ?></h4>
 
     
-    <p class="card-text">breve descripcion de libro.</p>
+    <p class="card-text"><?php echo $libro['detalles'] ?></p>
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">Editorial</li>
-    <li class="list-group-item">Autor</li>
-    <li class="list-group-item">ISBN</li>
-    <li class="list-group-item">Paginas</li>
+    <li class="list-group-item">Editorial: --> <strong><?php echo $libro['editorial'] ?></strong>  </li>
+    <li class="list-group-item">Autor: &nbsp;&nbsp;&nbsp; --> <strong><?php echo $libro['autor'] ?></strong>  </li></li>
+    <li class="list-group-item">ISBN:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --> <strong><?php echo $libro['isbn'] ?></strong>  </li></li>
+    <li class="list-group-item">Paginas: --> <strong><?php echo $libro['paginas'] ?></strong>  </li></li>
   </ul>
   <div class="card-body">
     
-    <a name="" id="" class="btn btn-primary btn-lg mb-4"" href="./productos.php"role="button">Editar Libro</a>
+    <a name="" id="" class="btn btn-primary btn-lg mb-4"" href="https://www.google.com/search?q=<?php echo $libro['isbn']?>" target="_blank" role="button">Buscar mas..</a>
     <a name="" id="" class="btn btn-warning btn-lg mb-4"" href="./productos.php"role="button">Regresar</a>
   </div>
 </div>

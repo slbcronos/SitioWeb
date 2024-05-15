@@ -36,6 +36,7 @@ $libro = $sentenciaSQL->fetch(PDO::FETCH_LAZY);
     <a name="" id="" class="btn btn-primary btn-lg mb-4"" href="https://www.google.com/search?q=<?php echo $libro['isbn']?>" target="_blank" role="button">Buscar mas..</a>
     <a name="" id="" class="btn btn-warning btn-lg mb-4"" href="./productos.php"role="button">Regresar</a>
   </div>
+  
 </div>
 
 

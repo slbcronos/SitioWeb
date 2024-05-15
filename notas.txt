@@ -7,8 +7,6 @@ en la cabecera del admin en la linea 27 la linear original es esta: <?php $url="
 remplaza por esta: <?php $url="http://".$_SERVER['HTTP_HOST'];?>
 
 
-
-
 Posibles soluciones a el detalle de libros
 https://es.stackoverflow.com/questions/531443/mostrar-descripci%C3%B3n-de-producto-php-mysql
 
@@ -19,4 +17,10 @@ https://www.youtube.com/watch?v=Wg7wUAZ2WfY
 https://desarrolloweb.com/articulos/317.php
 
 ************************************************
+
+
+comentarios en HTML:
+<!-- Este es un comentario en HTML -->
+
+
 

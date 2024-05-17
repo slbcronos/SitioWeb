@@ -16,13 +16,6 @@ try {
     echo $ex->getMessage();
 }
 /////////////////////////////////////////
-
 //Base de datos en hosting
-/*
-$host="localhost";
-$bd="id22148080_sitio";
-$usuario="id22148080_usuario";
-$contrasenia = "Mufasa1511$";
-*/
 
 ?>

@@ -5,7 +5,7 @@
 include ("administrador/config/bd.php");
 
 //consulata al la base de datos
-$sentenciaSQL = $conexion->prepare("SELECT * FROM libros");
+$sentenciaSQL = $conexion->prepare("SELECT * FROM libros ORDER BY nombre"); // cambiado para ordenar por nombre 19-05-2024
 $sentenciaSQL->execute();
 $listaLibros = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
 

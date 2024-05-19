@@ -135,7 +135,7 @@ switch ($accion) {
         break;
 }
 
-$sentenciaSQL = $conexion->prepare("SELECT * FROM libros");
+$sentenciaSQL = $conexion->prepare("SELECT * FROM libros ORDER BY nombre"); //cambiado para ordena 19 de mayo 2024
 $sentenciaSQL->execute();
 $listaLibros = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
 

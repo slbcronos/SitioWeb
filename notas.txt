@@ -9,6 +9,12 @@ remplaza por esta: <?php $url="http://".$_SERVER['HTTP_HOST'];?>
 ****NO SE DEBE DEJAR CAMPOS SIN USAR EN LA BASE DE DATOS YA EN EL HOSTING
 
 
+TIPS
+hacer que busque libros por nombre, creo que la idea es que en la barra de navegacion porner la buscqueda y que este
+enlazada a una busqueda por medio de sql.
+SELECT * FROM `libros` WHERE nombre LIKE '%java%'    hacer que concatene el %java% con codigo php.
+
+
 Posibles soluciones a el detalle de libros
 https://es.stackoverflow.com/questions/531443/mostrar-descripci%C3%B3n-de-producto-php-mysql
 

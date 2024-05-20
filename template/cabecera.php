@@ -22,12 +22,18 @@
                     <a class="nav-link" href="productos.php">Libros</a>
                     <a class="nav-link" href="nosotros.php">nosotros</a>
                     <a class="nav-link" href="administrador/index.php">Login</a>
+
                 </div>
+                <!-- Busqueda aqui queda a un costado del menu -->
             </div>
+            <!-- Envio de Busqueda-->
+            <form class="d-flex" role="search" method="post" action="productosBuscar.php">
+                <input class="form-control me-2" type="text" placeholder="Buscar Libros" aria-label="Search"
+                    name="LibroBuscar" value="">
+                <button class="btn btn-outline-success" type="submit" name="buscar">Buscar</button>
+            </form>
         </div>
     </nav>
-
-
 
     <div class="container">
         <br />

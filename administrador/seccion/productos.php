@@ -135,6 +135,7 @@ switch ($accion) {
         break;
 }
 
+
 $sentenciaSQL = $conexion->prepare("SELECT * FROM libros ORDER BY nombre"); //cambiado para ordena 19 de mayo 2024
 $sentenciaSQL->execute();
 $listaLibros = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
@@ -145,7 +146,7 @@ $listaLibros = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">Datos de Libro</h5>
-            <form id="1" method="post" enctype="multipart/form-data">
+            <form id="1" method="POST" enctype="multipart/form-data">
                 <!-- Email input -->
                 <div data-mdb-input-init class="form-outline mb-4">
                     <label class="form-label" for="form2Example1">ID:</label>
@@ -161,16 +162,68 @@ $listaLibros = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
 
                 <div data-mdb-input-init class="form-outline mb-4">
                     <label class="form-label" for="form2Example1"><strong>Editorial:</strong></label>
+                    <select class="form-select" aria-label="Default select example" id="txtEditorial"
+                        name="txtEditorial" value="<?php echo $txtEditorial; ?>">
+
+                        <option> <?php echo $txtEditorial; ?></option>
+
+                        <?php
+                        include ('../config/conexion.php');
+
+                        $consulta = "SELECT * FROM editorial";
+                        $ejecutarConsulta = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
+
+                        ?>
+
+                        <?php foreach ($ejecutarConsulta as $editoriales): ?>
+
+                            <option><?php echo $editoriales['nombreEditorial'] ?></option>
+
+                        <?php endforeach ?>
+
+                    </select>
+
+                </div>
+
+                <!-- Este es un comentario en HTML 
+                <div data-mdb-input-init class="form-outline mb-4">
+                    <label class="form-label" for="form2Example1"><strong>Editorial:</strong></label>
                     <input type="text" required value="<?php echo $txtEditorial; ?>" class="form-control"
                         id="txtEditorial" name="txtEditorial" placeholder="Editorial" />
                 </div>
+                -->
+                <div data-mdb-input-init class="form-outline mb-4">
+                    <label class="form-label" for="form2Example1"><strong>Autor:</strong></label>
+                    <select class="form-select" aria-label="Default select example" id="txtAutor"
+                        name="txtAutor" value="<?php echo $txtAutor; ?>">
 
+                        <option> <?php echo $txtAutor; ?></option>
+
+                        <?php
+                        include ('../config/conexion.php');
+
+                        $consulta = "SELECT * FROM autores";
+                        $ejecutarConsulta = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
+
+                        ?>
+
+                        <?php foreach ($ejecutarConsulta as $autores): ?>
+
+                            <option><?php echo $autores['nombreAutor'] ?></option>
+
+                        <?php endforeach ?>
+
+                    </select>
+
+                </div>
+
+                <!-- Este es un comentario en HTML 
                 <div data-mdb-input-init class="form-outline mb-4">
                     <label class="form-label" for="form2Example1"><strong>Autor:</strong></label>
                     <input type="text" required value="<?php echo $txtAutor; ?>" class="form-control" id="txtAutor"
                         name="txtAutor" placeholder="Autor" />
                 </div>
-
+                -->                
                 <div data-mdb-input-init class="form-outline mb-4">
                     <label class="form-label" for="form2Example1"><strong>ISBN:</strong></label>
                     <input type="text" value="<?php echo $txtisbn; ?>" class="form-control" id="txtisbn" name="txtisbn"
@@ -192,7 +245,9 @@ $listaLibros = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1"><strong>Descripcion:</strong></label>
                     <textarea form="1" class="form-control" id="txtDescripcion1" rows="3" name="txtDescripcion1"
-                        placeholder="Descripcion"><?php if(isset($_POST['accion'])){echo $libro['detalles'];}?></textarea>
+                        placeholder="Descripcion"><?php if (isset($_POST['accion'])) {
+                            echo $libro['detalles'];
+                        } ?></textarea>
                 </div>
 
                 <div data-mdb-input-init class="form-outline mb-4">

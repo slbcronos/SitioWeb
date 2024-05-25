@@ -1,6 +1,11 @@
 Consulta de insertar datos:
 INSERT INTO `libros` (`id`, `nombre`, `imagen`) VALUES (NULL, 'Desarrollo de Aplicaciones con Java 8 Orientado a Objetos', 'imagen1.jpg')
 
+INSERT INTO `categorias` (`id`, `nombreCategoria`) VALUES (NULL, 'Programacion');
+
+INSERT INTO `editorial` (`id`, `nombreEditorial`) VALUES (NULL, 'Alfaomega');
+
+
 
 Notas
 en la cabecera del admin en la linea 27 la linear original es esta: <?php $url="http://".$_SERVER['HTTP_HOST']."/sitioweb" ?> , pero no funciona en la web en el hosting y se---
@@ -32,3 +37,31 @@ comentarios en HTML:
 
 
 
+
+CARGA DE UN SELECT CON UNA TABLA Y AL MANDAR POR POST GUARDA EL NUEVO VALUE
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+                <div data-mdb-input-init class="form-outline mb-4">
+                    <label class="form-label" for="form2Example1"><strong>Editorial:</strong></label>
+                    <select class="form-select" aria-label="Default select example" id="txtEditorial"
+                        name="txtEditorial" value="<?php echo $txtEditorial; ?>">
+
+                        <option> <?php echo $txtEditorial; ?></option>
+
+                        <?php
+                        include ('../config/conexion.php');
+
+                        $consulta = "SELECT * FROM editorial";
+                        $ejecutarEditorial = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
+
+                        ?>
+
+                        <?php foreach ($ejecutarEditorial as $editoriales): ?>
+
+                            <option><?php echo $editoriales['nombreEditorial'] ?></option>
+
+                        <?php endforeach ?>
+
+                    </select>
+
+                </div>
+/////////////////////////////////////////////////////////////////////////////////////////////////////////

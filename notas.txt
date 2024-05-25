@@ -5,7 +5,7 @@ INSERT INTO `categorias` (`id`, `nombreCategoria`) VALUES (NULL, 'Programacion')
 
 INSERT INTO `editorial` (`id`, `nombreEditorial`) VALUES (NULL, 'Alfaomega');
 
-
+INSERT INTO `autores` (`id`, `nombreAutor`) VALUES (NULL, 'Manuel A. Torres Remon');
 
 Notas
 en la cabecera del admin en la linea 27 la linear original es esta: <?php $url="http://".$_SERVER['HTTP_HOST']."/sitioweb" ?> , pero no funciona en la web en el hosting y se---

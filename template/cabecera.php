@@ -20,7 +20,7 @@
                 <div class="navbar-nav">
                     <a class="nav-link active" aria-current="page" href="index.php">Inicio</a>
                     <a class="nav-link" href="productos.php">Libros</a>
-                    <a class="nav-link" href="nosotros.php">nosotros</a>
+                    <a class="nav-link" href="nosotros.php">Nosotros</a>
                     <a class="nav-link" href="administrador/index.php">Login</a>
 
                 </div>

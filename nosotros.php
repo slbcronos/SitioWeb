@@ -2,7 +2,7 @@
 
 <div class="jumbotron">
     <h1 class="display-3 fw-bold">Libreria Express</h1>
-    <p>Ejemplo de liblioteca digital personal</p>
+    <p>Ejemplo de biblioteca digital personal</p>
     <hr class="my-2">
 </div>
 

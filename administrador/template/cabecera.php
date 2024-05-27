@@ -34,6 +34,8 @@ session_start();
                     class="visually-hidden">(current)</span></a>
             <a class="nav-item nav-link" href="<?php echo $url;?>/administrador/inicio.php">Inicio</a>
             <a class="nav-item nav-link" href="<?php echo $url;?>/administrador/seccion/productos.php">Libros</a>
+            <a class="nav-item nav-link" href="<?php echo $url;?>/administrador/seccion/editoriales.php">Editoriales</a>
+            <a class="nav-item nav-link" href="<?php echo $url;?>/administrador/seccion/autores.php">Autores</a>
             <a class="nav-item nav-link" href="<?php echo $url;?>/administrador/seccion/cerrar.php">Cerrar</a>
             <a class="nav-item nav-link" href="<?php echo $url;?>">Ver sitio web</a>
         </div>

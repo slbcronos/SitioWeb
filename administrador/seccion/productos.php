@@ -265,13 +265,13 @@ $listaLibros = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
                 </div>
 
                 <div class="btn-group" role="group" aria-label="Button group name">
-                    <button type="submit" class="btn btn-success" name="accion" <?php echo ($accion == "Seleccionar") ? "disabled" : ""; ?> value="Agregar">
+                    <button type="submit" class="btn btn-success btn-lg" name="accion" <?php echo ($accion == "Seleccionar") ? "disabled" : ""; ?> value="Agregar">
                         Agregar
                     </button>
-                    <button type="submit" class="btn btn-warning" name="accion" <?php echo ($accion != "Seleccionar") ? "disabled" : ""; ?> value="Modificar">
+                    <button type="submit" class="btn btn-warning btn-lg" name="accion" <?php echo ($accion != "Seleccionar") ? "disabled" : ""; ?> value="Modificar">
                         Modificar
                     </button>
-                    <button type="submit" class="btn btn-info" name="accion" <?php echo ($accion != "Seleccionar") ? "disabled" : ""; ?> value="Cancelar">
+                    <button type="submit" class="btn btn-info btn-lg" name="accion" <?php echo ($accion != "Seleccionar") ? "disabled" : ""; ?> value="Cancelar">
                         Cancelar
                     </button>
                 </div>
@@ -302,7 +302,7 @@ $listaLibros = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
 
                                 <td>
                                     <img class="img-thumbnail rounded" src="../../img/<?php echo $libro['imagen']; ?>"
-                                        alt="" width="70">
+                                        alt="" width="75">
                                 </td>
 
                                 <td>

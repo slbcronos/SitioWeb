@@ -9,7 +9,7 @@ include ('../config/bd.php'); // referencia a Base de Datos
 
 switch ($accion) {
     case "Agregar":
-        $sentenciaSQL = $conexion->prepare("INSERT INTO editorial (nombreAutor) VALUES (:nombreAutor)");//cambia segun la bd
+        $sentenciaSQL = $conexion->prepare("INSERT INTO autores (nombreAutor) VALUES (:nombreAutor)");//cambia segun la bd
         $sentenciaSQL->bindParam(':nombreAutor', $txtNombre);
         $sentenciaSQL->execute();
         echo ("<meta http-equiv='refresh' content='1'>"); //Refresh by HTTP 'meta'

@@ -105,7 +105,7 @@ switch ($accion) {
         //echo "Precionado boton Seleccionar";
         break;
 
-    case 'Borrar':
+    case 'Eliminar':
         //no requiere cambios si se agregan columnas en la bd
         $sentenciaSQL = $conexion->prepare("SELECT imagen FROM libros WHERE id=:id");
         $sentenciaSQL->bindParam(':id', $txtID);
@@ -170,7 +170,7 @@ $listaLibros = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
                         <?php
                         include ('../config/conexion.php');
 
-                        $consulta = "SELECT * FROM editorial";
+                        $consulta = "SELECT * FROM editorial ORDER BY nombreEditorial";
                         $ejecutarConsulta = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
 
                         ?>
@@ -194,15 +194,15 @@ $listaLibros = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
                 -->
                 <div data-mdb-input-init class="form-outline mb-4">
                     <label class="form-label" for="form2Example1"><strong>Autor:</strong></label>
-                    <select class="form-select" aria-label="Default select example" id="txtAutor"
-                        name="txtAutor" value="<?php echo $txtAutor; ?>">
+                    <select class="form-select" aria-label="Default select example" id="txtAutor" name="txtAutor"
+                        value="<?php echo $txtAutor; ?>">
 
                         <option> <?php echo $txtAutor; ?></option>
 
                         <?php
                         include ('../config/conexion.php');
 
-                        $consulta = "SELECT * FROM autores";
+                        $consulta = "SELECT * FROM autores ORDER BY nombreAutor";
                         $ejecutarConsulta = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
 
                         ?>
@@ -223,7 +223,7 @@ $listaLibros = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
                     <input type="text" required value="<?php echo $txtAutor; ?>" class="form-control" id="txtAutor"
                         name="txtAutor" placeholder="Autor" />
                 </div>
-                -->                
+                -->
                 <div data-mdb-input-init class="form-outline mb-4">
                     <label class="form-label" for="form2Example1"><strong>ISBN:</strong></label>
                     <input type="text" value="<?php echo $txtisbn; ?>" class="form-control" id="txtisbn" name="txtisbn"
@@ -264,7 +264,7 @@ $listaLibros = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
                         placeholder="Imagen del Libro" />
                 </div>
 
-                <div class="btn-group" role="group" aria-label="Button group name">
+                <div class="d-grid gap-1 col-6" role="group" aria-label="Button group name">
                     <button type="submit" class="btn btn-success btn-lg" name="accion" <?php echo ($accion == "Seleccionar") ? "disabled" : ""; ?> value="Agregar">
                         Agregar
                     </button>
@@ -288,7 +288,7 @@ $listaLibros = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
                 <table class="table table-primary">
                     <thead>
                         <tr>
-                            <th scope="col">ID</th>
+                           
                             <th scope="col">Nombre</th>
                             <th scope="col">Imagen</th>
                             <th scope="col">Acciones</th>
@@ -297,22 +297,24 @@ $listaLibros = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
                     <tbody>
                         <?php foreach ($listaLibros as $libro) { ?>
                             <tr class="">
-                                <td><?php echo $libro['id']; ?></td>
-                                <td><?php echo $libro['nombre']; ?></td>
+                                
+                                <td ><?php echo $libro['nombre']; ?></td>
 
                                 <td>
                                     <img class="img-thumbnail rounded" src="../../img/<?php echo $libro['imagen']; ?>"
-                                        alt="" width="75">
+                                        alt="" width="85">
                                 </td>
 
                                 <td>
 
                                     <form method="post">
+                                    <div class="d-grid gap-1 col-4" role="group" aria-label="Button group name">
                                         <input type="hidden" name="txtID" id="txtID" value="<?php echo $libro['id']; ?>" />
                                         <input type="submit" name="accion" value="Seleccionar" class="btn btn-primary" />
-                                        <input type="submit" name="accion" value="Borrar" class="btn btn-danger" />
-
+                                        <input type="submit" name="accion" value="Eliminar" class="btn btn-danger" />
+                                        </div>
                                     </form>
+
                                 </td>
                             </tr>
                         <?php } ?>

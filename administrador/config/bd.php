@@ -1,7 +1,7 @@
 <?php 
 //////////////////////////////conexion
 $host="localhost";
-$bd="sitio";
+$bd="libreriaExpress";
 $usuario="root";
 $contrasenia = "";
 

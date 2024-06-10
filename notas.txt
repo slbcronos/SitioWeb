@@ -12,6 +12,9 @@ en la cabecera del admin en la linea 27 la linear original es esta: <?php $url="
 remplaza por esta: <?php $url="http://".$_SERVER['HTTP_HOST'];?>
 
 ****NO SE DEBE DEJAR CAMPOS SIN USAR EN LA BASE DE DATOS YA EN EL HOSTING
+****Para que en la base de datos la relacion muestre el nombre y no el ID origen es encesario hacer la relacion basada en (Index) 
+y se vinculan los VARCHAR en vez de los ID, la llave foranea es de tipo Index, para eliminar una relacion o hacer nuevas
+la tabla debe estar vacia
 
 
 TIPS

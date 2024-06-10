@@ -1,12 +1,12 @@
-<?php 
+<?php
 session_start();
-    if(!isset($_SESSION['usuario'])){
-        header('location:../index.php');
-    }else{
-        if($_SESSION['usuario']=="ok"){
-            $nombreUsuario=$_SESSION["nombreUsuario"];
-        }
+if (!isset($_SESSION['usuario'])) {
+    header('location:../index.php');
+} else {
+    if ($_SESSION['usuario'] == "ok") {
+        $nombreUsuario = $_SESSION["nombreUsuario"];
     }
+}
 
 ?>
 
@@ -26,23 +26,27 @@ session_start();
 </head>
 
 <body>
-<?php //revisar esto que cambio en la linea 23 en el archivo de notas, por eso falla?>
-<?php $url="http://".$_SERVER['HTTP_HOST'];?>
+    <?php //revisar esto que cambio en la linea 23 en el archivo de notas, por eso falla ?>
+    <?php $url = "http://" . $_SERVER['HTTP_HOST']; ?>
 
     <nav class="navbar navbar-expand navbar-light bg-light">
         <div class="nav navbar-nav">
             <a class="nav-item nav-link active" href="#">Administrador del Sitio Web <span
                     class="visually-hidden">(current)</span></a>
-            <a class="nav-item nav-link" href="<?php echo $url;?>/administrador/inicio.php">Inicio</a>
-            <a class="nav-item nav-link" href="<?php echo $url;?>/administrador/seccion/productos.php">Libros</a>
-            <a class="nav-item nav-link" href="<?php echo $url;?>/administrador/seccion/editoriales.php">Editoriales</a>
-            <a class="nav-item nav-link" href="<?php echo $url;?>/administrador/seccion/autores.php">Autores</a>
-            <a class="nav-item nav-link" href="<?php echo $url;?>/administrador/seccion/cerrar.php">Cerrar</a>
-            <a class="nav-item nav-link" href="<?php echo $url;?>">Ver sitio web</a>
+            <a class="nav-item nav-link" href="<?php echo $url; ?>/administrador/inicio.php">Inicio</a>
+            <a class="nav-item nav-link" href="<?php echo $url; ?>/administrador/seccion/productos.php">Libros</a>
+            <a class="nav-item nav-link" href="<?php echo $url; ?>/administrador/seccion/editoriales.php">Editoriales</a>
+            <a class="nav-item nav-link" href="<?php echo $url; ?>/administrador/seccion/autores.php">Autores</a>
+            <a class="nav-item nav-link" href="<?php echo $url; ?>/administrador/seccion/tipos.php">Tipos de
+                Publicacion</a>
+            <a class="nav-item nav-link" href="<?php echo $url; ?>/administrador/seccion/generos.php">Generos</a>
+
+            <a class="nav-item nav-link" href="<?php echo $url; ?>/administrador/seccion/cerrar.php">Cerrar</a>
+            <a class="nav-item nav-link" href="<?php echo $url; ?>">Ver sitio web</a>
         </div>
     </nav>
 
 
     <div class="container">
-        <br/>
+        <br />
         <div class="row">

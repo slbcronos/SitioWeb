@@ -1,13 +1,17 @@
 <?php include ('../template/cabecera.php'); ?>
 <?php
 $txtID = (isset($_POST['txtID'])) ? $_POST['txtID'] : "";
+$txtTipo = (isset($_POST['txtTipo'])) ? $_POST['txtTipo'] : "";
 $txtNombre = (isset($_POST['txtNombre'])) ? $_POST['txtNombre'] : "";
 $txtEditorial = (isset($_POST['txtEditorial'])) ? $_POST['txtEditorial'] : "";
 $txtAutor = (isset($_POST['txtAutor'])) ? $_POST['txtAutor'] : "";
 $txtisbn = (isset($_POST['txtisbn'])) ? $_POST['txtisbn'] : "";
 $txtPaginas = (isset($_POST['txtPaginas'])) ? $_POST['txtPaginas'] : "";
+$txtGenero = (isset($_POST['txtGenero'])) ? $_POST['txtGenero'] : "";
+$txtAnio = (isset($_POST['txtAnio'])) ? $_POST['txtAnio'] : "";
 //$txtDescripcion = (isset($_POST['txtDescripcion'])) ? $_POST['txtDescripcion'] : "";
 $txtDescripcion1 = (isset($_POST['txtDescripcion1'])) ? $_POST['txtDescripcion1'] : "";
+$txtResenia = (isset($_POST['txtResenia'])) ? $_POST['txtResenia'] : "";
 $txtImagen = (isset($_FILES['txtImagen']['name'])) ? $_FILES['txtImagen']['name'] : "";
 $accion = (isset($_POST['accion'])) ? $_POST['accion'] : "";
 
@@ -16,12 +20,16 @@ include ('../config/bd.php'); // referencia a Base de Datos
 switch ($accion) {
     case 'Agregar':
         // case agregar
-        $sentenciaSQL = $conexion->prepare("INSERT INTO libros (nombre,editorial,autor,isbn,paginas,detalles,imagen) VALUES (:nombre,:editorial,:autor,:isbn,:paginas,:detalles,:imagen)");//cambia segun la bd
+        $sentenciaSQL = $conexion->prepare("INSERT INTO libros (tipoPublicacion,nombre,editorial,autor,isbn,paginas,genero,anio,detalles,reseniaPersonal,imagen) VALUES (:tipoPublicacion,:nombre,:editorial,:autor,:isbn,:paginas,:genero,:anio,:detalles,:reseniaPersonal,:imagen)");//cambia segun la bd
+        $sentenciaSQL->bindParam(':tipoPublicacion', $txtTipo);
         $sentenciaSQL->bindParam(':nombre', $txtNombre);
         $sentenciaSQL->bindParam(':editorial', $txtEditorial);
         $sentenciaSQL->bindParam(':autor', $txtAutor);
         $sentenciaSQL->bindParam(':isbn', $txtisbn);
         $sentenciaSQL->bindParam(':paginas', $txtPaginas);
+        $sentenciaSQL->bindParam(':genero', $txtGenero);
+        $sentenciaSQL->bindParam(':anio', $txtAnio);
+        $sentenciaSQL->bindParam(':reseniaPersonal', $txtResenia);
         $sentenciaSQL->bindParam(':detalles', $txtDescripcion1);
 
         $fecha = new DateTime();
@@ -39,12 +47,16 @@ switch ($accion) {
         break;
 
     case 'Modificar':
-        $sentenciaSQL = $conexion->prepare("UPDATE libros SET nombre=:nombre, editorial=:editorial,autor=:autor,isbn=:isbn,paginas=:paginas, detalles=:detalles  WHERE id=:id"); // cambia segun los camops de la bd
+        $sentenciaSQL = $conexion->prepare("UPDATE libros SET tipoPublicacion=:tipoPublicacion, nombre=:nombre, editorial=:editorial,autor=:autor,isbn=:isbn,paginas=:paginas,genero=:genero,anio=:anio,reseniaPersonal=:reseniaPersonal,detalles=:detalles  WHERE id=:id"); // cambia segun los camops de la bd
+        $sentenciaSQL->bindParam(':tipoPublicacion', $txtTipo);
         $sentenciaSQL->bindParam(':nombre', $txtNombre);
         $sentenciaSQL->bindParam(':editorial', $txtEditorial);
         $sentenciaSQL->bindParam(':autor', $txtAutor);
         $sentenciaSQL->bindParam(':isbn', $txtisbn);
         $sentenciaSQL->bindParam(':paginas', $txtPaginas);
+        $sentenciaSQL->bindParam(':genero', $txtGenero);
+        $sentenciaSQL->bindParam(':anio', $txtAnio);
+        $sentenciaSQL->bindParam(':reseniaPersonal', $txtResenia);
         $sentenciaSQL->bindParam(':detalles', $txtDescripcion1);
 
         $sentenciaSQL->bindParam(':id', $txtID);
@@ -93,13 +105,16 @@ switch ($accion) {
         $sentenciaSQL->execute();
         $libro = $sentenciaSQL->fetch(PDO::FETCH_LAZY);
 
+        $txtTipo = $libro['tipoPublicacion'];
         $txtNombre = $libro['nombre'];
         $txtImagen = $libro['imagen'];
         $txtEditorial = $libro['editorial'];
         $txtAutor = $libro['autor'];
         $txtisbn = $libro['isbn'];
         $txtPaginas = $libro['paginas'];
-        //$txtDescripcion = $libro['detalles'];
+        $txtGenero = $libro['genero'];
+        $txtAnio = $libro['anio'];
+        $txtResenia = $libro['reseniaPersonal'];
         $txtDescripcion1 = $libro['detalles'];
 
         //echo "Precionado boton Seleccionar";
@@ -152,6 +167,31 @@ $listaLibros = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
                     <label class="form-label" for="form2Example1">ID:</label>
                     <input type="text" required readonly value="<?php echo $txtID; ?>" class="form-control" id="txtID"
                         name="txtID" placeholder="ID" />
+                </div>
+
+                <div data-mdb-input-init class="form-outline mb-4">
+                    <label class="form-label" for="form2Example1"><strong>Tipo de Publicacion:</strong></label>
+                    <select class="form-select" aria-label="Default select example" id="txtTipo" name="txtTipo"
+                        value="<?php echo $txtTipo; ?>">
+
+                        <option> <?php echo $txtTipo; ?></option>
+
+                        <?php
+                        include ('../config/conexion.php');
+
+                        $consulta = "SELECT * FROM tipopublicacion ORDER BY nombreTipo";
+                        $ejecutarConsulta = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
+
+                        ?>
+
+                        <?php foreach ($ejecutarConsulta as $tipos): ?>
+
+                            <option><?php echo $tipos['nombreTipo'] ?></option>
+
+                        <?php endforeach ?>
+
+                    </select>
+
                 </div>
 
                 <div data-mdb-input-init class="form-outline mb-4">
@@ -235,6 +275,39 @@ $listaLibros = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
                     <input type="text" required value="<?php echo $txtPaginas; ?>" class="form-control" id="txtPaginas"
                         name="txtPaginas" placeholder="Paginas" />
                 </div>
+
+                <div data-mdb-input-init class="form-outline mb-4">
+                    <label class="form-label" for="genero"><strong>Genero:</strong></label>
+                    <select class="form-select" aria-label="Default select example" id="txtGenero" name="txtGenero"
+                        value="<?php echo $txtGenero; ?>">
+
+                        <option> <?php echo $txtGenero; ?></option>
+
+                        <?php
+                        include ('../config/conexion.php');
+
+                        $consulta = "SELECT * FROM genero ORDER BY nombregenero";
+                        $ejecutarConsulta = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
+
+                        ?>
+
+                        <?php foreach ($ejecutarConsulta as $generos): ?>
+
+                            <option><?php echo $generos['nombregenero'] ?></option>
+
+                        <?php endforeach ?>
+
+                    </select>
+
+                </div>
+
+                <div data-mdb-input-init class="form-outline mb-4">
+                    <label class="form-label" for="anio"><strong>Año:</strong></label>
+                    <input type="text" value="<?php echo $txtAnio; ?>" class="form-control" id="txtAnio" name="txtAnio"
+                        placeholder="Año" />
+                </div>
+
+
                 <!--
                 <div data-mdb-input-init class="form-outline mb-4">
                     <label class="form-label" for="form2Example1"><strong>Descripcion:</strong></label>
@@ -247,6 +320,14 @@ $listaLibros = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
                     <textarea form="1" class="form-control" id="txtDescripcion1" rows="3" name="txtDescripcion1"
                         placeholder="Descripcion"><?php if (isset($_POST['accion'])) {
                             echo $libro['detalles'];
+                        } ?></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="reseniaPersonal"><strong>Reseña Personal:</strong></label>
+                    <textarea form="1" class="form-control" id="txtResenia" rows="3" name="txtResenia"
+                        placeholder="Reseña Personal"><?php if (isset($_POST['accion'])) {
+                            echo $libro['reseniaPersonal'];
                         } ?></textarea>
                 </div>
 
@@ -288,7 +369,7 @@ $listaLibros = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
                 <table class="table table-primary">
                     <thead>
                         <tr>
-                           
+
                             <th scope="col">Nombre</th>
                             <th scope="col">Imagen</th>
                             <th scope="col">Acciones</th>
@@ -297,8 +378,8 @@ $listaLibros = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
                     <tbody>
                         <?php foreach ($listaLibros as $libro) { ?>
                             <tr class="">
-                                
-                                <td ><?php echo $libro['nombre']; ?></td>
+
+                                <td><?php echo $libro['nombre']; ?></td>
 
                                 <td>
                                     <img class="img-thumbnail rounded" src="../../img/<?php echo $libro['imagen']; ?>"
@@ -308,10 +389,12 @@ $listaLibros = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
                                 <td>
 
                                     <form method="post">
-                                    <div class="d-grid gap-1 col-4" role="group" aria-label="Button group name">
-                                        <input type="hidden" name="txtID" id="txtID" value="<?php echo $libro['id']; ?>" />
-                                        <input type="submit" name="accion" value="Seleccionar" class="btn btn-primary" />
-                                        <input type="submit" name="accion" value="Eliminar" class="btn btn-danger" />
+                                        <div class="d-grid gap-1 col-4" role="group" aria-label="Button group name">
+                                            <input type="hidden" name="txtID" id="txtID"
+                                                value="<?php echo $libro['id']; ?>" />
+                                            <input type="submit" name="accion" value="Seleccionar"
+                                                class="btn btn-primary" />
+                                            <input type="submit" name="accion" value="Eliminar" class="btn btn-danger" />
                                         </div>
                                     </form>
 

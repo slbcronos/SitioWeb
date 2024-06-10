@@ -29,11 +29,37 @@ $libro = $sentenciaSQL->fetch(PDO::FETCH_LAZY);
         <p class="card-text"><?php echo $libro['detalles'] ?></p>
 
         <ul class="list-group list-group-flush">
-          <li class="list-group-item"><strong><h5>Editorial:&nbsp;</strong> <?php echo $libro['editorial'] ?> </h5></li>
-          <li class="list-group-item"><strong><h5>Autor:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> <?php echo $libro['autor'] ?> </h5></li>
-          <li class="list-group-item"><strong><h5>ISBN:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> <?php echo $libro['isbn'] ?> </h5></li>
-          <li class="list-group-item"><strong><h5>Paginas:&nbsp;&nbsp;</strong> <?php echo $libro['paginas'] ?> </h5></li>
+          <li class="list-group-item"><strong>
+              <h5>Tipo:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </strong> <?php echo $libro['tipoPublicacion'] ?> </h5>
+          </li>
+          <li class="list-group-item"><strong>
+              <h5>Editorial:&nbsp;
+            </strong> <?php echo $libro['editorial'] ?> </h5>
+          </li>
+          <li class="list-group-item"><strong>
+              <h5>Autor:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </strong> <?php echo $libro['autor'] ?> </h5>
+          </li>
+          <li class="list-group-item"><strong>
+              <h5>ISBN:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </strong> <?php echo $libro['isbn'] ?> </h5>
+          </li>
+          <li class="list-group-item"><strong>
+              <h5>Genero:&nbsp;&nbsp;&nbsp;
+            </strong> <?php echo $libro['genero'] ?> </h5>
+          </li>
+          <li class="list-group-item"><strong>
+              <h5>Año:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </strong> <?php echo $libro['anio'] ?> </h5>
+          </li>
+          <li class="list-group-item"><strong>
+              <h5>Paginas:&nbsp;&nbsp;
+            </strong> <?php echo $libro['paginas'] ?> </h5>
+          </li>
         </ul>
+        <br />
+        <p class="card-text"><?php echo $libro['reseniaPersonal'] ?></p>
         <br />
         <a name="" id="" class="btn btn-primary btn-lg mb-4"" href=" https://www.google.com/search?q=<?php echo $libro['isbn'] ?>" target="_blank" role="button">Buscar mas..</a>
         <a name="" id="" class="btn btn-warning btn-lg mb-4"" href=" ./productos.php"role="button">Regresar</a>

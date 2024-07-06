@@ -94,12 +94,12 @@ $listaAutores = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
         <div class="card-header">Tabla de Generos</div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered">
+                <table class="table table-bordered" id="tabla_id">
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
                             <th scope="col">Nombre</th>
-                            <th scope="col">Acciones</th>
+                            <th scope="col">Acciones</th> 
                         </tr>
                     </thead>
                     <tbody>

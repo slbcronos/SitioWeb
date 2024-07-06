@@ -366,7 +366,7 @@ $listaLibros = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
         <div class="card-body">
             <h5 class="card-title">Tabla de Libros</h5>
             <div class="table-responsive">
-                <table class="table table-primary">
+                <table class="table table-primary" id="tabla_id">
                     <thead>
                         <tr>
 

@@ -116,7 +116,8 @@ $listaAutores = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
                                                 value="<?php echo $autores['id']; ?>" />
                                             <input type="submit" name="accion" value="Seleccionar"
                                                 class="btn btn-primary" />
-                                            <input type="submit" name="accion" value="Eliminar" class="btn btn-danger" />
+                                            <input type="submit" name="accion" value="Eliminar" class="btn btn-danger"
+                                            onclick="return confirm('¿Desea eliminar el registro?');"  />
                                         </div>
                                     </form>
                                 </td>

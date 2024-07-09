@@ -41,10 +41,13 @@ switch ($accion) {
 
     case "Eliminar":
         //echo "Precionado Boton Borrar";
-        $sentenciaSQL = $conexion->prepare("DELETE FROM editorial WHERE id = :id");
-        $sentenciaSQL->bindParam(':id', $txtID);
+
+        $sentenciaSQL = $conexion->prepare("DELETE FROM editorial WHERE id=:id");
+        $sentenciaSQL->bindParam(":id", $txtID);
         $sentenciaSQL->execute();
-        echo ("<meta http-equiv='refresh' content='1'>"); //Refresh by HTTP 'meta'
+        echo ("<meta http-equiv='refresh' content='1'>"); //Refresh by HTTP 'meta
+
+        
         break;
 
     default:
@@ -64,7 +67,7 @@ $listaEditoriales = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
     <div class="card">
         <div class="card-header">Datos de la Editorial</div>
         <div class="card-body">
-            <form action="" method="post">
+            <form action="" method="post" id="miFormulario">
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">ID</label>
                     <input type="text" required readonly class="form-control" name="txtID" id="txtID" placeholder="ID"
@@ -117,7 +120,8 @@ $listaEditoriales = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
                                                 value="<?php echo $editoriales['id']; ?>" />
                                             <input type="submit" name="accion" value="Seleccionar"
                                                 class="btn btn-primary" />
-                                            <input type="submit" name="accion" value="Eliminar" class="btn btn-danger" />
+                                            <input type="submit" name="accion" value="Eliminar" class="btn btn-danger"
+                                            onclick="return confirm('¿Desea eliminar el registro?');"/>
                                         </div>
                                     </form>
                                 </td>
@@ -129,4 +133,34 @@ $listaEditoriales = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </div>
 </div>
+<script type="text/javascript">
+       (function() {
+         var form = document.getElementById('miFormulario');
+         form.addEventListener('submit', function(event) {
+           // si es false entonces que no haga el submit
+           if (!confirm('Realmente desea eliminar?')) {
+             event.preventDefault();
+           }
+         }, false);
+       })();
+     </script>
+
+
+<script>
+    function borrar(id) {
+        Swal.fire({
+            title: "¿Desea borrar el Registro?",
+            showCancelButton: true,
+            confirmButtonText: "Si, Borrar",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location = "editoriales.php?txtID=" + id;
+                
+            }else
+            {
+                Swal.fire("Cancelado", "No se ha borrado el registro", "error");
+        })
+    }
+</script>
+
 <?php include ('../template/pie.php'); ?>

@@ -132,17 +132,13 @@ switch ($accion) {
 
                 unlink("../../img/" . $libro["imagen"]);
             }
-
         }
-
         $sentenciaSQL = $conexion->prepare("DELETE  FROM libros WHERE id =:id");
         $sentenciaSQL->bindParam(':id', $txtID);
         $sentenciaSQL->execute();
+        echo ("<meta http-equiv='refresh' content='1'>"); //Refrescado de pagina
 
-        echo ("<meta http-equiv='refresh' content='1'>"); //Refresh by HTTP 'meta'
 
-        //header("Location:productos.php");
-        //echo "Precionado boton Borrar";
         break;
 
     default:
@@ -394,7 +390,8 @@ $listaLibros = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
                                                 value="<?php echo $libro['id']; ?>" />
                                             <input type="submit" name="accion" value="Seleccionar"
                                                 class="btn btn-primary" />
-                                            <input type="submit" name="accion" value="Eliminar" class="btn btn-danger" />
+                                            <input type="submit" name="accion" value="Eliminar" class="btn btn-danger"
+                                            onclick="return confirm('¿Desea eliminar el registro?');"  />
                                         </div>
                                     </form>
 
@@ -407,5 +404,7 @@ $listaLibros = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </div>
 </div>
+
+
 
 <?php include ('../template/pie.php'); ?>
